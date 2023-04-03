@@ -2,6 +2,7 @@ package com.example;
 
 import com.example.entities.Peliculas;
 import com.example.repositories.PeliculasRepository;
+import com.example.services.PeliculasService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -21,12 +22,14 @@ public class App {
 
 		datosDemo();
 
-		PeliculasRepository peliculasRepo = context.getBean(PeliculasRepository.class);
+		// PeliculasService peliculasService = context.getBean(PeliculasService.class);
+
 
 	}
 
 	private static void datosDemo(){
 		PeliculasRepository peliculasRepo = context.getBean(PeliculasRepository.class);
+
 
 
 		Peliculas pel1 = new Peliculas();
@@ -39,12 +42,22 @@ public class App {
 				"ciencia ficción producidas por Lightstorm Entertainment y distribuidas por " +
 				"20th Century Studios, así como productos relacionados, videojuegos y " +
 				"atracciones de parques temáticos. ");
+		pel1.setPrecioEntrada(12.90);
 
-		Peliculas pel2 = Peliculas.builder().nombre("Dune").duracion(155).estreno(LocalDate.of(2021, Month.OCTOBER, 22)).activa(true).build();
+		Peliculas pel2 = Peliculas.builder()
+				.nombre("Dune").duracion(155)
+				.estreno(LocalDate.of(2021, Month.OCTOBER, 22))
+				.activa(true)
+				.descripcion("Arrakis, también denominado \"Dune\", se ha convertido en el planeta " +
+						"más importante del universo. A su alrededor comienza una gigantesca lucha " +
+						"por el poder que culmina en una guerra interestelar.")
+				.precioEntrada(11.50)
+				.build();
+
 		Peliculas pel3 = new Peliculas(null,"xXx Reactivated","Tras incendiarse, un satélite se sale de órbita" +
 				" y cae sobre la Tierra. No es un accidente: el culpable es un peligroso dispositivo que pronto" +
 				" es puesto bajo custodia de la CIA... sólo para ser robado poco después. La agente Jane Marke " +
-				"decide entonces buscar a Xander Cage.",102,LocalDate.of(2017, Month.JANUARY, 20),true);
+				"decide entonces buscar a Xander Cage.",102,LocalDate.of(2017, Month.JANUARY, 20),true,14.50);
 
 			peliculasRepo.saveAll(List.of(pel1,pel2,pel3));
 

@@ -24,5 +24,6 @@ public class Peliculas {
     private Integer duracion;
     private LocalDate estreno;
     private Boolean activa;
+    private Double precioEntrada;
 
     }
