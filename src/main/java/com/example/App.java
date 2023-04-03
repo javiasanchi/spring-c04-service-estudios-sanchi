@@ -31,6 +31,14 @@ public class App {
 
 		Peliculas pel1 = new Peliculas();
 		pel1.setNombre("Avatar");
+		pel1.setDuracion(162);
+		pel1.setEstreno(LocalDate.of(2009, 2, 18));
+		pel1.setActiva(true);
+		pel1.setDescripcion("Avatar es una franquicia de medios estadounidense creada por " +
+				"James Cameron, que consiste en una serie planificada de películas épicas de " +
+				"ciencia ficción producidas por Lightstorm Entertainment y distribuidas por " +
+				"20th Century Studios, así como productos relacionados, videojuegos y " +
+				"atracciones de parques temáticos. ");
 
 		Peliculas pel2 = Peliculas.builder().nombre("Dune").duracion(155).estreno(LocalDate.of(2021, Month.OCTOBER, 22)).activa(true).build();
 		Peliculas pel3 = new Peliculas(null,"xXx Reactivated","Tras incendiarse, un satélite se sale de órbita" +
