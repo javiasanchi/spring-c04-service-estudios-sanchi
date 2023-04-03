@@ -42,7 +42,7 @@ public class App {
 				"ciencia ficción producidas por Lightstorm Entertainment y distribuidas por " +
 				"20th Century Studios, así como productos relacionados, videojuegos y " +
 				"atracciones de parques temáticos. ");
-		pel1.setPrecioEntrada(12.90);
+
 
 		Peliculas pel2 = Peliculas.builder()
 				.nombre("Dune").duracion(155)
@@ -51,16 +51,14 @@ public class App {
 				.descripcion("Arrakis, también denominado \"Dune\", se ha convertido en el planeta " +
 						"más importante del universo. A su alrededor comienza una gigantesca lucha " +
 						"por el poder que culmina en una guerra interestelar.")
-				.precioEntrada(11.50)
 				.build();
 
 		Peliculas pel3 = new Peliculas(null,"xXx Reactivated","Tras incendiarse, un satélite se sale de órbita" +
 				" y cae sobre la Tierra. No es un accidente: el culpable es un peligroso dispositivo que pronto" +
 				" es puesto bajo custodia de la CIA... sólo para ser robado poco después. La agente Jane Marke " +
-				"decide entonces buscar a Xander Cage.",102,LocalDate.of(2017, Month.JANUARY, 20),true,14.50);
+				"decide entonces buscar a Xander Cage.",102,LocalDate.of(2017, Month.JANUARY, 20),true);
 
 			peliculasRepo.saveAll(List.of(pel1,pel2,pel3));
 
 	}
-
 }
