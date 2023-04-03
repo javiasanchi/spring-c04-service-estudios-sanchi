@@ -15,8 +15,8 @@ public class PeliculasServiceImpl implements PeliculasService {
     }
 
     @Override
-    public Optional<Peliculas> findById() {
-        return this.peliculasRepo.findById(Long id);
+    public Optional<Peliculas> findById(Long id) {
+        return this.peliculasRepo.findById(id);
     }
 
     @Override

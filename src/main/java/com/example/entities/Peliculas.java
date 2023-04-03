@@ -19,6 +19,7 @@ public class Peliculas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
+    @Column(length = 500)
     private String descripcion;
     private Integer duracion;
     private LocalDate estreno;
