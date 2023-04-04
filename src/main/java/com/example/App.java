@@ -22,15 +22,19 @@ public class App {
 
 		datosDemo();
 
-		// PeliculasService peliculasService = context.getBean(PeliculasService.class);
+		PeliculasService peliculasService = context.getBean(PeliculasService.class);
 
 
 	}
 
 	private static void datosDemo(){
 		PeliculasRepository peliculasRepo = context.getBean(PeliculasRepository.class);
+		try {
 
-
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		Peliculas pel1 = new Peliculas();
 		pel1.setNombre("Avatar");
@@ -46,7 +50,7 @@ public class App {
 
 		Peliculas pel2 = Peliculas.builder()
 				.nombre("Dune").duracion(155)
-				.estreno(LocalDate.of(2021, Month.OCTOBER, 22))
+
 				.activa(true)
 				.descripcion("Arrakis, también denominado \"Dune\", se ha convertido en el planeta " +
 						"más importante del universo. A su alrededor comienza una gigantesca lucha " +
@@ -57,8 +61,14 @@ public class App {
 				" y cae sobre la Tierra. No es un accidente: el culpable es un peligroso dispositivo que pronto" +
 				" es puesto bajo custodia de la CIA... sólo para ser robado poco después. La agente Jane Marke " +
 				"decide entonces buscar a Xander Cage.",102,LocalDate.of(2017, Month.JANUARY, 20),true);
-
-			peliculasRepo.saveAll(List.of(pel1,pel2,pel3));
+		Peliculas pel4 = Peliculas.builder()
+				.estreno(LocalDate.of(2021, Month.OCTOBER, 22))
+				.nombre("El golpe")
+				.duracion(122)
+				.descripcion("descripcion")
+				.activa(true)
+				.build();
+			peliculasRepo.saveAll(List.of(pel1,pel2,pel3,pel4));
 
 	}
 }
