@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.Month;
 import java.util.List;
 
@@ -23,12 +22,11 @@ public class App {
 		datosDemo();
 
 		PeliculasService peliculasService = context.getBean(PeliculasService.class);
-
-
-	}
+		}
 
 	private static void datosDemo(){
 		PeliculasRepository peliculasRepo = context.getBean(PeliculasRepository.class);
+
 		try {
 
 		}
@@ -39,7 +37,7 @@ public class App {
 		Peliculas pel1 = new Peliculas();
 		pel1.setNombre("Avatar");
 		pel1.setDuracion(162);
-		pel1.setEstreno(LocalDate.of(2009, 2, 18));
+		pel1.setEstreno(LocalDate.of(1972, 2, 18));
 		pel1.setActiva(true);
 		pel1.setDescripcion("Avatar es una franquicia de medios estadounidense creada por " +
 				"James Cameron, que consiste en una serie planificada de películas épicas de " +
@@ -68,7 +66,10 @@ public class App {
 				.descripcion("descripcion")
 				.activa(true)
 				.build();
+
 			peliculasRepo.saveAll(List.of(pel1,pel2,pel3,pel4));
 
+		System.out.println("FIN PROGRAMA");
 	}
+
 }
