@@ -4,11 +4,12 @@ import com.example.entities.Peliculas;
 import com.example.repositories.PeliculasRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class PeliculasServiceImpl implements PeliculasService {
 
     public static final Logger log = LoggerFactory.getLogger(PeliculasService.class);
@@ -27,15 +28,15 @@ public class PeliculasServiceImpl implements PeliculasService {
 
     @Override
     public List<Peliculas> findAllByNombre(String nombre) {
-        return null;
+        return this.peliculasRepo.findByNombre(nombre);
     }
 
     @Override
     public List<Peliculas> findAllByEstreno(LocalDate estreno) {
-        return null;
+        return this.peliculasRepo.findAllByEstreno(estreno);
     }
-    public  List<Peliculas> findAllByActiva () {
-        return this.findAllByActiva();
+    public  List<Peliculas> findAllByActiva (Boolean activa) {
+        return this.findAllByActiva(activa);
     }
 
     public PeliculasServiceImpl(PeliculasRepository peliculasRepo) {

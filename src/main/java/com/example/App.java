@@ -22,17 +22,21 @@ public class App {
 		datosDemo();
 
 		PeliculasService peliculasService = context.getBean(PeliculasService.class);
+
+
 		}
 
 	private static void datosDemo(){
 		PeliculasRepository peliculasRepo = context.getBean(PeliculasRepository.class);
+		PeliculasService peliculasService = context.getBean(PeliculasService.class);
 
-		try {
+
+		/*try {
 
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 
 		Peliculas pel1 = new Peliculas();
 		pel1.setNombre("Avatar");
@@ -68,6 +72,12 @@ public class App {
 				.build();
 
 			peliculasRepo.saveAll(List.of(pel1,pel2,pel3,pel4));
+
+
+			peliculasRepo.findAllByActiva(true);
+			peliculasRepo.findByNombre("Perico");
+			peliculasRepo.findAllByEstreno(LocalDate.of(2009,4,8));
+
 
 		System.out.println("FIN PROGRAMA");
 	}
