@@ -10,7 +10,4 @@ public interface PeliculasRepository extends JpaRepository<Peliculas, Long> {
 
     List<Peliculas> findByNombre(String nombre);
 
-    List<Peliculas> findAllByEstreno(LocalDate estreno);
-
-    List<Peliculas> findAllByActiva(Boolean activa);
 }

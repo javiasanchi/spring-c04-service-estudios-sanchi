@@ -3,6 +3,7 @@ package com.example;
 import com.example.entities.Peliculas;
 import com.example.repositories.PeliculasRepository;
 import com.example.services.PeliculasService;
+import lombok.extern.java.Log;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -12,6 +13,7 @@ import java.time.Month;
 import java.util.List;
 
 @SpringBootApplication
+@Log
 public class App {
 	static ApplicationContext context;
 
@@ -21,22 +23,13 @@ public class App {
 
 		datosDemo();
 
-		PeliculasService peliculasService = context.getBean(PeliculasService.class);
-
+		// PeliculasService peliculasService = context.getBean(PeliculasService.class);
 
 		}
-
 	private static void datosDemo(){
 		PeliculasRepository peliculasRepo = context.getBean(PeliculasRepository.class);
 		PeliculasService peliculasService = context.getBean(PeliculasService.class);
 
-
-		/*try {
-
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}*/
 
 		Peliculas pel1 = new Peliculas();
 		pel1.setNombre("Avatar");
@@ -52,7 +45,6 @@ public class App {
 
 		Peliculas pel2 = Peliculas.builder()
 				.nombre("Dune").duracion(155)
-
 				.activa(true)
 				.descripcion("Arrakis, también denominado \"Dune\", se ha convertido en el planeta " +
 						"más importante del universo. A su alrededor comienza una gigantesca lucha " +
@@ -73,10 +65,11 @@ public class App {
 
 			peliculasRepo.saveAll(List.of(pel1,pel2,pel3,pel4));
 
-
-			peliculasRepo.findAllByActiva(true);
 			peliculasRepo.findByNombre("Perico");
-			peliculasRepo.findAllByEstreno(LocalDate.of(2009,4,8));
+		System.out.println(peliculasRepo);
+
+		List<Peliculas> pelicula = peliculasService.findAllByDuracionBeetwen(100,170);
+		System.out.println(pelicula);
 
 
 		System.out.println("FIN PROGRAMA");

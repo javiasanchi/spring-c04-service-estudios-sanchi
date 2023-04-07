@@ -14,6 +14,9 @@ public class PeliculasServiceImpl implements PeliculasService {
 
     public static final Logger log = LoggerFactory.getLogger(PeliculasService.class);
     private PeliculasRepository peliculasRepo;
+    public PeliculasServiceImpl(PeliculasRepository peliculasRepo) {
+        this.peliculasRepo = peliculasRepo;
+    }
     @Override
     public List<Peliculas> findAll() {
         log.info("Aplicando findAll ()");
@@ -28,18 +31,20 @@ public class PeliculasServiceImpl implements PeliculasService {
 
     @Override
     public List<Peliculas> findAllByNombre(String nombre) {
+        log.info("Buscar por nombre {} ", nombre);
         return this.peliculasRepo.findByNombre(nombre);
     }
 
     @Override
-    public List<Peliculas> findAllByEstreno(LocalDate estreno) {
-        return this.peliculasRepo.findAllByEstreno(estreno);
-    }
-    public  List<Peliculas> findAllByActiva (Boolean activa) {
-        return this.findAllByActiva(activa);
+    public List<Peliculas> findAllByDuracionBeetwen(int maxDuracion, int minDuracion) {
+        return this.findAllByDuracionBeetwen(maxDuracion,minDuracion);
     }
 
-    public PeliculasServiceImpl(PeliculasRepository peliculasRepo) {
-        this.peliculasRepo = peliculasRepo;
-    }
+
+    /*@Override
+    public List<Peliculas> findAllByDuracionBeetwen(int maxDuracion, int minDuracion) {
+        return this.findAllByDuracionBeetwen(100,160);
+
+    }*/
+
 }

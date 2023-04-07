@@ -13,7 +13,6 @@ public interface PeliculasService {
     List<Peliculas> findAll();
     Optional<Peliculas> findById(Long id);
     List<Peliculas> findAllByNombre(String nombre);
-    List<Peliculas> findAllByEstreno(LocalDate estreno);
-    List<Peliculas> findAllByActiva (Boolean activa);
+    List<Peliculas> findAllByDuracionBeetwen (int maxDuracion, int minDuracion);
 
 }
